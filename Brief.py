@@ -49,7 +49,7 @@ for index, row in df_clients.iterrows():
         row['Téléphone'],
         row['Date_Naissance'],
         row['Adresse'],
-        int(row['Consentement_Marketing'])  # 0 ou 1 pour le consentement marketing
+        row['Consentement_Marketing']  # 0 ou 1 pour le consentement marketing
     ))
 
 # Lecture du fichier CSV des commandes
