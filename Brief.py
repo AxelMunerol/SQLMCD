@@ -34,23 +34,15 @@ CREATE TABLE IF NOT EXISTS "Commandes" (
     )
 ''')
 
-# Lecture du fichier CSV des clients
-df_clients = pd.read_csv('jeuclients.csv')
+# Lecture et importation du fichier CSV des clients
+try:
+    clients_df = pd.read_csv('jeuclients.csv')
+    clients_df.to_sql('Client', conn, if_exists='replace', index=False)  # Remplace la table si elle existe
+    print("Les données des clients ont été importées avec succès.")
+except Exception as e:
+    print(f"Erreur lors de l'importation des clients : {e}")
 
-# Insertion des données dans la table Client
-for index, row in df_clients.iterrows():
-    cursor.execute('''
-        INSERT INTO Client (Prénom, Nom, Email, Téléphone, Date_Naissance, Adresse, Consentement_Marketing)
-        VALUES (?, ?, ?, ?, ?, ?, ?)
-    ''', (
-        row['Prénom'],
-        row['Nom'],
-        row['Email'],
-        row['Téléphone'],
-        row['Date_Naissance'],
-        row['Adresse'],
-        row['Consentement_Marketing']  # 0 ou 1 pour le consentement marketing
-    ))
+
 
 # Lecture du fichier CSV des commandes
 df_commandes = pd.read_csv('jeucommandes.csv')
@@ -93,7 +85,7 @@ clients = cursor.fetchall()
 
 # Affichage des résultats
 for client in clients:
-    print(client)
+    print(client[0])
 print('--------------------')
 
 print('Les clients avec une somme supérieure à 100:')
