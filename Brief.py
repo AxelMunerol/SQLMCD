@@ -19,7 +19,7 @@ cursor.execute('''
         "Téléphone" VARCHAR,
         "Date_Naissance" DATE,
         "Adresse" VARCHAR NOT NULL,
-        "Consentement_Marketing" INTEGER NOT NULL
+        "Consentement_Marketing" BOOLEAN NOT NULL
     )
 ''')
 
