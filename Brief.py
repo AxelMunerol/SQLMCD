@@ -84,7 +84,7 @@ clients = cursor.fetchall()
 
 # Affichage des résultats
 for client in clients:
-    print(client)
+    print(client[0])
 print('--------------------')
 
 print('Somme du client 61:')
@@ -107,7 +107,7 @@ clients = cursor.fetchall()
 
 # Affichage des résultats
 for client in clients:
-    print(client)
+    print(client[0])
 print('--------------------')
 
 print('Les clients ayant passé des commandes après le 01/01/2023:')
@@ -121,7 +121,7 @@ clients = cursor.fetchall()
 
 # Affichage des résultats
 for client in clients:
-    print(client)
+    print(client[0])
 print('--------------------')
 
 # Fermer la connexion
