@@ -28,7 +28,7 @@ cursor.execute('''
 CREATE TABLE IF NOT EXISTS "Commandes" (
     "Commande_ID" INTEGER PRIMARY KEY AUTOINCREMENT,
     "Date_Commande" DATE NOT NULL,
-    "Montant_Commande" INTEGER NOT NULL,
+    "Montant_Commande" REAL NOT NULL,
     "Client_ID" INTEGER NOT NULL,
     FOREIGN KEY ("Client_ID") REFERENCES "Client"("Client_id")
     )
