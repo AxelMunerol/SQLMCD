@@ -101,7 +101,7 @@ cursor.execute('''
 SELECT Client_ID 
 FROM Commandes 
 GROUP BY Client_ID
-HAVING SUM(Montant_Commande) > 100;
+HAVING SUM(Montant_Commande) >= 100;
 ''')
 clients = cursor.fetchall()
 
@@ -114,7 +114,7 @@ print('Les clients ayant passé des commandes après le 01/01/2023:')
 cursor.execute('''
 SELECT DISTINCT Client_ID 
 FROM Commandes 
-WHERE Date_Commande > '2023-01-01'
+WHERE Date_Commande >= '2023-01-01'
 ORDER BY Client_ID ASC;
 ''')
 clients = cursor.fetchall()
